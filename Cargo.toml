@@ -3,4 +3,15 @@ name = "zero2prod"
 version = "0.1.0"
 edition = "2024"
 
+# .cargo/config.toml
+# On Windows
+# ```
+# cargo install -f cargo-binutils
+# rustup component add llvm-tools-preview
+# ```
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
 [dependencies]
